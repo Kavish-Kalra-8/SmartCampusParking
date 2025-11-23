@@ -12,32 +12,24 @@ The **Smart Campus Parking System** is a Java based application which is  design
 ## ✨ Key Features
 Here are the main features I implemented based on the project requirements:
 
-1. Vehicle Entry
+**1. Vehicle Entry**
 
-Auto-Assign Slots: You don't need to check for space manually; the system finds the nearest empty slot automatically.
+Auto Assignment of free Slots: The system finds the nearest free slots automatically so that it doesn't need to be checked manually.
 
-Vehicle Details: It records the License Plate and Vehicle Type (Car or Bike) upon entry.
+Vehicle Details: The license type an vehicle type are recorded upon arrival of the vehicle.
 
-No Duplicates: I added validation to ensure the same car can't be parked twice at the same time.
+Automatic Validation: Validation of license plates ensures that no duplicate vehicles are parked. 
 
-2. Exit & Billing
+**2. Exit & Billing**
 
-Auto-Billing: When a vehicle leaves, the system checks the duration and calculates the fee instantly.
+Automatic Billing: The system calculates the total fee based on the type of vehicle parked and duration of parking .
 
-Different Rates: It applies different logic for different vehicles (e.g., Bikes pay less than Cars).
+Different Rates: Different pricing model is used according to the type of vehicle to ensure fair pricing .
 
-Receipts: It prints a simple transaction summary on the console after checkout.
-
-3. Admin Dashboard
-
-Live Tracking: The admin can see exactly how many slots are free vs. occupied in real-time.
-
-Revenue Log: It keeps a running total of how much money was collected during the session.
-
-Reset: Option to clear all data to start fresh for a new day.
+Receipts: It prints a simple summary of the billing is displaye to the user after checkout.
 
 ### 3. Admin Dashboard
-* **Occupancy Tracking:** Porvides Real time tracking of occupied and available slots.
+* **Occupancy Tracking:** Provides Real time tracking of occupied and available slots.
 * **Revenue Reports:** Tracks the total earnings for the session.
 * **Reset Capability:** Allows admins to reset so to clear data for a new day.
 
@@ -55,11 +47,11 @@ Data Storage: Made use of Text Files to maintain the data and Java Collections (
 ---
 
 ## ⚙️ OOP Concepts Implemented
-* **Inheritance:** A base `Vehicle` class is extended by `Car` and `Bike` classes.
-* **Polymorphism:** The `calculateFee()` method is overridden to provide the specific billing logic implementation required for different vehicle types.
-* **Encapsulation:** All data fields (e.g., `licensePlate`, `revenue`) are private and accessible only with the use of Getter and Setter methods.
-* **Abstraction:** Implementation of abstract classes for the basic Parking logic.
-* [cite_start]**Exception Handling:** Custom exceptions like `ParkingLotFullException` and `InvalidTicketException`[cite: 41].
+* **Inheritance:** A Parent class `Vehicle` is created which is then extended by `Car` and `Bike` classes so that they can acquire the common attributes.
+* **Polymorphism:** Both car and bike classes provide their own implementation to the `calculateFee()` method by overriding it to calucate the total fees according to the vehicle type
+* **Encapsulation:** All data fields are made private and accessible only with the use of Getter and Setter methods.
+* **Abstraction:** Interfaces are used for the Parking Service.
+* [cite_start]**Exception Handling:** Custom exceptions like `ParkingLotFullException` and `InvalidTicketException` are created to tell the user about what is causing the error .[cite: 41].
 
 ---
 

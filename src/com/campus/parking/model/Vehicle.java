@@ -1,29 +1,30 @@
 package com.campus.parking.model;
 
-/**
- * Abstract base class representing any vehicle.
- * Demonstrates Abstraction and Encapsulation.
- */
 public abstract class Vehicle {
-    private String licensePlate;
+    private String plateNo;
     private String type;
 
-    public Vehicle(String licensePlate, String type) {
-        this.licensePlate = licensePlate;
+    public Vehicle(String plateNo, String type) {
+        this.plateNo = plateNo;
         this.type = type;
     }
 
-    // Getters (Encapsulation)
-    public String getLicensePlate() {
-        return licensePlate;
+
+    public String getplateNo() {
+        return plateNo;
     }
 
     public String getType() {
         return type;
     }
+
+
+    public void setplateNo(String plateNo) {
+        this.plateNo = plateNo;
+    }
     
     @Override
     public String toString() {
-        return type + " [" + licensePlate + "]";
+        return type + " [" + plateNo + "]";
     }
 }

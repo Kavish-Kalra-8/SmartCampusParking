@@ -17,22 +17,24 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         ParkingService parkingService = new ParkingServiceImpl();
 
-        System.out.println("=== SMART CAMPUS PARKING SYSTEM ===");
-        System.out.println("Initializing system with 10 slots...");
+        System.out.println("VIT Bhopal Smart Campus Parking System : ");
 
         while (true) {
-            System.out.println("\n--- MAIN MENU ---");
-            System.out.println("1. Park a Vehicle");
-            System.out.println("2. Unpark & Calculate Bill");
-            System.out.println("3. View Admin Dashboard");
-            System.out.println("4. Exit");
+            System.out.println("MAIN MENU - ");
+            System.out.println("1. Park a Vehicle (Create)");
+            System.out.println("2. Unpark & Bill (Delete)");
+            System.out.println("3. Search Vehicle (Read)");
+            System.out.println("4. Edit License Plate (Update)");
+            System.out.println("5. View Dashboard (Read All)");
+            System.out.println("6. Exit");
             System.out.print("Enter choice: ");
 
             int choice = 0;
             try {
-                choice = Integer.parseInt(scanner.nextLine());
+                String input = scanner.nextLine();
+                choice = Integer.parseInt(input);
             } catch (NumberFormatException e) {
-                System.out.println("Invalid input! Please enter a number.");
+                System.out.println("Invalid input!");
                 continue;
             }
 
@@ -44,14 +46,36 @@ public class Main {
                     handleUnparking(scanner, parkingService);
                     break;
                 case 3:
-                    showDashboard(parkingService);
+                    System.out.print("Enter License Plate to find: ");
+                    String searchPlate = scanner.nextLine();
+                    System.out.println(parkingService.searchVehicle(searchPlate));
                     break;
                 case 4:
-                    System.out.println("Exiting system. Goodbye!");
+                    
+                    System.out.print("Enter Ticket ID to edit: ");
+                    try {
+                        int updateId = Integer.parseInt(scanner.nextLine());
+                        System.out.print("Enter New License Plate: ");
+                        String newPlate = scanner.nextLine();
+                        
+                        if(parkingService.updateplateNo(updateId, newPlate)) {
+                            System.out.println("SUCCESS: License plate updated.");
+                        } else {
+                            System.out.println("ERROR: Ticket ID not found.");
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid Ticket ID.");
+                    }
+                    break;
+                case 5:
+                    showDashboard(parkingService);
+                    break;
+                case 6:
+                    System.out.println("Exiting system. Data saved.");
                     scanner.close();
                     System.exit(0);
                 default:
-                    System.out.println("Invalid choice. Try again.");
+                    System.out.println("Invalid choice.");
             }
         }
     }
@@ -70,16 +94,12 @@ public class Main {
             } else if (type.equalsIgnoreCase("Bike")) {
                 vehicle = new Bike(plate);
             } else {
-                System.out.println("Error: Invalid vehicle type. Only Car or Bike allowed.");
+                System.out.println("Wrong input. Only Car/Bike supported.");
                 return;
             }
 
             Ticket ticket = service.parkVehicle(vehicle);
-            System.out.println("---------------------------------");
-            System.out.println("SUCCESS: Vehicle Parked.");
-            System.out.println("Ticket ID: " + ticket.getTicketId());
-            System.out.println("Slot Number: " + ticket.getSlotId());
-            System.out.println("---------------------------------");
+            System.out.println("SUCCESS: Parked at Slot " + ticket.getSlotId() + " (Ticket #" + ticket.getTicketId() + ")");
 
         } catch (ParkingLotFullException e) {
             System.out.println("ERROR: " + e.getMessage());
@@ -89,35 +109,25 @@ public class Main {
     private static void handleUnparking(Scanner scanner, ParkingService service) {
         try {
             System.out.print("Enter Ticket ID to unpark: ");
-            String input = scanner.nextLine();
-            int ticketId = Integer.parseInt(input);
-
+            int ticketId = Integer.parseInt(scanner.nextLine());
             double fee = service.unparkVehicle(ticketId);
-            
-            System.out.println("---------------------------------");
-            System.out.println("SUCCESS: Vehicle Unparked.");
-            System.out.println("Total Fee to Pay: $" + fee);
-            System.out.println("---------------------------------");
-
+            System.out.println("SUCCESS: Vehicle Unparked. Total Fee: $" + fee);
         } catch (InvalidTicketException e) {
             System.out.println("ERROR: " + e.getMessage());
         } catch (NumberFormatException e) {
-            System.out.println("ERROR: Please enter a valid numeric Ticket ID.");
+            System.out.println("ERROR: Invalid Ticket ID.");
         }
     }
 
     private static void showDashboard(ParkingService service) {
         System.out.println("\n[ ADMIN DASHBOARD ]");
-        System.out.println("Available Slots: " + service.getAvailableSlotsCount());
-        
+        System.out.println("Slots Available: " + service.getAvailableSlotsCount());
         List<Ticket> activeTickets = service.getActiveTickets();
-        System.out.println("Currently Parked Vehicles: " + activeTickets.size());
-        
         if (activeTickets.isEmpty()) {
-            System.out.println(" - No vehicles in the lot.");
+            System.out.println("No vehicles currently parked.");
         } else {
             for (Ticket t : activeTickets) {
-                System.out.println(" - " + t.toString() + " [" + t.getVehicle().toString() + "]");
+                System.out.println(t);
             }
         }
     }

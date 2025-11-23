@@ -11,4 +11,7 @@ public interface ParkingService {
     double unparkVehicle(int ticketId) throws InvalidTicketException;
     int getAvailableSlotsCount();
     List<Ticket> getActiveTickets();
+    String searchVehicle(String plateNo);
+    
+    boolean updateplateNo(int ticketId, String newPlate);
 }
