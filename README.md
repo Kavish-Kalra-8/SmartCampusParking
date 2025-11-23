@@ -60,7 +60,7 @@ Follow the given steps to set up the project on your local machine:
 
 1.  **Clone the Repository**
     ```bash
-    git clone [https://github.com/YOUR_USERNAME/SmartCampusParking.git](https://github.com/YOUR_USERNAME/SmartCampusParking.git)
+    git clone https://github.com/Kavish-Kalra-8/SmartCampusParking.git
     ```
 
 2.  **Navigate to the Directory**
