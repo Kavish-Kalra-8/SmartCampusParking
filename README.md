@@ -93,7 +93,14 @@ Data Storage: Made use of Text Files to maintain the data and Java Collections (
 ---
 
 ## 📸 Screenshots
-![Screenshot of main menu]("C:\Users\Admin\OneDrive\Pictures\Screenshots\Screenshot 2025-11-23 220608.png")
+
+![Screenshot of the Main Menu](./assets/Main-menu.png)
+
+![Parking a vehicle](./assets/park-vehicle.png)
+
+![Searching a vehicle by License Plate](./assets/search-vehicle.png)
+
+![Admin Dashboard](./assets/Admin-dashboard.png)
 
 ---
 
