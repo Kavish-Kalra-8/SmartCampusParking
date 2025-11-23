@@ -3,9 +3,9 @@
 ![Project Status](https://img.shields.io/badge/status-complete-green) ![Java Version](https://img.shields.io/badge/java-17%2B-blue)
 
 ## 📖 Project Overview
-The **Smart Campus Parking System** is a Java based application which is  designed to digitalize and automate the management of parking slots in the university. [cite_start]It solves the problem of tracking the vehicles in the parking slot manually by providing an interface for vehicle entry, exit, fee calculation, and monitoring[cite: 10, 89, 90].
+The **Smart Campus Parking System** is a Java based application which is  designed to digitalize and automate the management of parking slots in the university. It solves the problem of tracking the vehicles in the parking slot manually by providing an interface for vehicle entry, exit, fee calculation, and monitoring.
 
-[cite_start]This project shows the practical usage of concepts of **Object-Oriented Programming (OOP)** such as Inheritance , Polymorphism , Abstraction and Encapsulation in solving real world problems.[cite: 8, 51].
+This project shows the practical usage of concepts of **Object-Oriented Programming (OOP)** such as Inheritance , Polymorphism , Abstraction and Encapsulation in solving real world problems.
 
 ---
 
@@ -51,12 +51,12 @@ Data Storage: Made use of Text Files to maintain the data and Java Collections (
 * **Polymorphism:** Both car and bike classes provide their own implementation to the `calculateFee()` method by overriding it to calucate the total fees according to the vehicle type
 * **Encapsulation:** All data fields are made private and accessible only with the use of Getter and Setter methods.
 * **Abstraction:** Interfaces are used for the Parking Service.
-* [cite_start]**Exception Handling:** Custom exceptions like `ParkingLotFullException` and `InvalidTicketException` are created to tell the user about what is causing the error .[cite: 41].
+***Exception Handling:** Custom exceptions like `ParkingLotFullException` and `InvalidTicketException` are created to tell the user about what is causing the error .
 
 ---
 
 ## 🚀 Steps to Install & Run
-[cite_start]Follow the given steps to set up the project on your local machine[cite: 94]:
+Follow the given steps to set up the project on your local machine:
 
 1.  **Clone the Repository**
     ```bash
@@ -81,7 +81,7 @@ Data Storage: Made use of Text Files to maintain the data and Java Collections (
 ---
 
 ## 🧪 Instructions for Testing
-[cite_start]Use the following test cases to verify the working of the features [cite: 95]:
+Use the following test cases to verify the working of the features :
 
 | Test Case | Action | Expected Output |
 | :--- | :--- | :--- |
