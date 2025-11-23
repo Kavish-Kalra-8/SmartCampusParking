@@ -93,7 +93,7 @@ Data Storage: Made use of Text Files to maintain the data and Java Collections (
 ---
 
 ## 📸 Screenshots
-[cite_start]*(Add your screenshots inside the /assets folder and uncomment the lines below)* 
+![Screenshot of main menu]("C:\Users\Admin\OneDrive\Pictures\Screenshots\Screenshot 2025-11-23 220608.png")
 
 ---
 
